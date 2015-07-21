@@ -14,52 +14,29 @@ function load_custom_widgets() {
 
 // BEGIN Google Analytics Code Insertion
 // -- added by Cary W. Hazelwood
-// -- updated Sep 19, 2014 @ 10:43 AM
-
+// -- updated July 20, 2015 @1:45pm by Charlie Campbell
 add_action('wp_footer', 'add_googleanalytics');
 function add_googleanalytics() { ?>
 <!-- Google Analytics BEGIN -->
 <script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	ga('create', 'UA-22618401-1', 'auto');
-	ga('require', 'linkid', 'linkid.js');
-	ga('send', 'pageview');
-	ga('set', '&uid', {{USER_ID}}); // Set the user ID using signed-in user_id.
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ ga('create', 'UA-22618401-1', 'auto');
+ ga('send', 'pageview');
 </script>
 <!-- Google Analytics END -->
 <?php }
-
 // END Google Analytics Code Insertion
-
-// BEGIN Crazy Egg Code Insertion
-// -- added by Cary W. Hazelwood
-// -- updated Sep 19, 2014 @ 10:56 AM
-
-add_action('wp_footer', 'add_crazyegg');
-function add_crazyegg() { ?>
-<!-- Crazy Egg BEGIN -->
-<script>
-	setTimeout(function(){var a=document.createElement("script");
-	var b=document.getElementsByTagName("script")[0];
-	a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0024/5584.js?"+Math.floor(new Date().getTime()/3600000);
-	a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
-</script>
-<!-- Crazy Egg END -->
-<?php }
-
-// END Crazy Egg Code Insertion
 
 // BEGIN Pingdom and Hotjar Code Insertion
 // -- added by Charlie C Campbell
 // -- updated Dec 12, 2014 @ 2:56 PM
 
-add_action('wp_head', 'add_pingdom_hotjar');
-function add_pingdom_hotjar() { ?>
-<!-- Pingdom and Hotjar BEGIN -->
+add_action('wp_head', 'add_pingdom');
+function add_pingdom() { ?>
+<!-- Pingdom BEGIN -->
 <script>
 var _prum = [['id', '5422fbf0abe53de91a6e0d30'],
              ['mark', 'firstbyte', (new Date()).getTime()]];
@@ -71,23 +48,10 @@ var _prum = [['id', '5422fbf0abe53de91a6e0d30'],
     s.parentNode.insertBefore(p, s);
 })();
 </script>
-<script>
-    (function(f,b,g){
-        var xo=g.prototype.open,xs=g.prototype.send,c;
-        f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
-        f._hjSettings={hjid:3634, hjsv:2};
-        function ls(){f.hj.documentHtml=b.documentElement.outerHTML;c=b.createElement("script");c.async=1;c.src="//static.hotjar.com/c/hotjar-3634.js?sv=2";b.getElementsByTagName("head")[0].appendChild(c);}
-        if(b.readyState==="interactive"||b.readyState==="complete"||b.readyState==="loaded"){ls();}else{if(b.addEventListener){b.addEventListener("DOMContentLoaded",ls,false);}}
-        if(!f._hjPlayback && b.addEventListener){
-            g.prototype.open=function(l,j,m,h,k){this._u=j;xo.call(this,l,j,m,h,k)};
-            g.prototype.send=function(e){var j=this;function h(){if(j.readyState===4){f.hj("_xhr",j._u,j.status,j.response)}}this.addEventListener("readystatechange",h,false);xs.call(this,e)};
-        }
-    })(window,document,window.XMLHttpRequest);
-</script>
-<!-- Pingdom and Hotjar END -->
+<!-- Pingdom END -->
 <?php }
 
-// END Pingdom and Hotjar Code Insertion
+// END Pingdom Code Insertion
 
 add_filter( 'wp_feed_cache_transient_lifetime', create_function('$a', 'return 8;') );
 
